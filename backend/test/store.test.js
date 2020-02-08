@@ -85,6 +85,49 @@ describe('Store', () => {
     })
   })
 
+  describe('.getAll()', () => {
+    let store = new Store()
+
+    beforeEach(() => {
+      store = new Store()
+    })
+
+    test('should get all existing items', () => {
+      store.add('test')
+      store.add('test2')
+
+      expect(store.getAll()).toEqual([
+        {
+          item: 'test',
+          category: null,
+          quantity: 1
+        },
+        {
+          item: 'test2',
+          category: null,
+          quantity: 1
+        }
+      ])
+    })
+
+    test('should return all items with given category', () => {
+      store.add('test')
+      store.add('test2', 'testItems')
+
+      expect(store.getAll('testItems')).toEqual([
+        {
+          item: 'test2',
+          category: 'testItems',
+          quantity: 1
+        }
+      ])
+    })
+
+    test('should return an empty array if store is empty', () => {
+      expect(store.getAll()).toEqual([])
+    })
+  })
+
   describe('.remove()', () => {
     let store = new Store()
 

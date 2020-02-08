@@ -26,6 +26,16 @@ class Store {
     }
   }
 
+  getAll (category) {
+    const items = Object.keys(this._contents).map(k => this.get(k))
+
+    if (category) {
+      return items.filter(i => i.category === category)
+    } else {
+      return items
+    }
+  }
+
   remove (item, quantity) {
     if (quantity <= 0) return
 
