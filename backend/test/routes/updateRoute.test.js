@@ -24,12 +24,12 @@ describe('/item/:itemName', () => {
       })
   })
 
-  test('should return 400 if the item to update does not exist', () => {
+  test('should return 404 if the item to update does not exist', () => {
     return request.patch('/item/nonexistent')
       .send({
         quantity: 2,
         category: 'testItems'
-      }).expect(500, {
+      }).expect(404, {
         error: 'Item "nonexistent" does not exist'
       })
   })

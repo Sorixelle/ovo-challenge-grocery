@@ -4,7 +4,7 @@ const updateRoute = (req, res) => {
 
   const item = req.store.get(req.params.itemName)
   if (!item) {
-    res.status(500).json({
+    res.status(404).json({
       error: `Item "${req.params.itemName}" does not exist`
     })
     return
