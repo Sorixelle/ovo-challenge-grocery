@@ -6,14 +6,9 @@ class Store {
   add (item, category = null, quantity = 1) {
     if (quantity <= 0) return
 
-    if (!this._contents[item]) {
-      this._contents[item] = {
-        quantity,
-        category
-      }
-    } else {
-      this._contents[item].quantity += quantity
-      if (category) this.contents[item].category = category
+    this._contents[item] = {
+      quantity,
+      category
     }
   }
 
@@ -36,14 +31,8 @@ class Store {
     }
   }
 
-  remove (item, quantity) {
-    if (quantity <= 0) return
-
-    if (quantity && quantity < this._contents[item].quantity) {
-      this._contents[item].quantity -= quantity
-    } else {
-      delete this._contents[item]
-    }
+  remove (item) {
+    delete this._contents[item]
   }
 }
 

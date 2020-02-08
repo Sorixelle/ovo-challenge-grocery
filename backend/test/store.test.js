@@ -29,7 +29,7 @@ describe('Store', () => {
     })
 
     test('should add a specified quantity of objects to the store', () => {
-      store.add('test', undefined, 2)
+      store.add('test', null, 2)
 
       expect(store._contents.test).toEqual({
         quantity: 2,
@@ -37,28 +37,18 @@ describe('Store', () => {
       })
     })
 
-    test('should increment existing items', () => {
-      store.add('test')
-      store.add('test')
+    test('should update existing items', () => {
+      store.add('test', null, 1)
+      store.add('test', 'testItems', 2)
 
       expect(store._contents.test).toEqual({
         quantity: 2,
-        category: null
-      })
-    })
-
-    test('should increment existing items by a specified quantity', () => {
-      store.add('test')
-      store.add('test', undefined, 2)
-
-      expect(store._contents.test).toEqual({
-        quantity: 3,
-        category: null
+        category: 'testItems'
       })
     })
 
     test('should do nothing if the specified quantity is less than 1', () => {
-      store.add('test', undefined, -1)
+      store.add('test', null, -1)
 
       expect(store._contents.test).toBeUndefined()
     })
@@ -133,7 +123,7 @@ describe('Store', () => {
 
     beforeEach(() => {
       store = new Store()
-      store.add('test', undefined, 2)
+      store.add('test', null, 1)
     })
 
     test('should remove all of one item with no quantity specified', () => {
@@ -142,34 +132,10 @@ describe('Store', () => {
       expect(store._contents.test).toBeUndefined()
     })
 
-    test('should remove the specified quantity of an item', () => {
-      store.remove('test', 1)
-
-      expect(store._contents.test).toEqual({
-        quantity: 1,
-        category: null
-      })
-    })
-
-    test('should remove all of one item if the specified quantity exceeds the stored quantity', () => {
-      store.remove('test', 3)
-
-      expect(store._contents.test).toBeUndefined()
-    })
-
     test('should do nothing if the specified item does not exist', () => {
       store.remove('nonexistent')
 
       expect(store._contents.nonexistent).toBeUndefined()
-    })
-
-    test('should do nothing if the specified quantity is less than 1', () => {
-      store.remove('test', -1)
-
-      expect(store._contents.test).toEqual({
-        quantity: 2,
-        category: null
-      })
     })
   })
 })

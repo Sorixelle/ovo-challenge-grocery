@@ -80,6 +80,14 @@ describe('util', () => {
 
       expect(passed).toBe(false)
     })
+
+    test('should pass on an item without a name with strict mode off', () => {
+      const passed = util.verifyItem({
+        quantity: 1
+      }, false)
+
+      expect(passed).toBe(true)
+    })
   })
 
   describe('.verifyItemMiddleware()', () => {
@@ -104,23 +112,35 @@ describe('util', () => {
       nextMock.mockClear()
     })
 
-    test('should proceed if item is valid', () => {
+    test('should proceed if item is valid with strict mode on', () => {
       req.body = {
         item: 'test',
         quantity: 1,
         category: 'testItems'
       }
 
-      util.verifyItemMiddleware(req, res, nextMock)
+      util.verifyItemMiddleware(true)(req, res, nextMock)
 
       expect(jsonMock.mock.calls.length).toBe(0)
       expect(nextMock.mock.calls.length).toBe(1)
     })
 
-    test('should stop is item is not valid', () => {
+    test('should proceed if item is valid with strict mode off', () => {
+      req.body = {
+        quantity: 1,
+        category: 'testItems'
+      }
+
+      util.verifyItemMiddleware(false)(req, res, nextMock)
+
+      expect(jsonMock.mock.calls.length).toBe(0)
+      expect(nextMock.mock.calls.length).toBe(1)
+    })
+
+    test('should stop is item is empty', () => {
       req.body = {}
 
-      util.verifyItemMiddleware(req, res, nextMock)
+      util.verifyItemMiddleware(true)(req, res, nextMock)
 
       expect(nextMock.mock.calls.length).toBe(0)
       expect(jsonMock.mock.calls[0][0]).toEqual({
