@@ -14,7 +14,8 @@ describe('Store', () => {
       store.add('test')
 
       expect(store._contents.test).toEqual({
-        amount: 1
+        quantity: 1,
+        category: null
       })
     })
 
@@ -22,7 +23,7 @@ describe('Store', () => {
       store.add('test', 'testItems')
 
       expect(store._contents.test).toEqual({
-        amount: 1,
+        quantity: 1,
         category: 'testItems'
       })
     })
@@ -31,7 +32,8 @@ describe('Store', () => {
       store.add('test', undefined, 2)
 
       expect(store._contents.test).toEqual({
-        amount: 2
+        quantity: 2,
+        category: null
       })
     })
 
@@ -40,7 +42,8 @@ describe('Store', () => {
       store.add('test')
 
       expect(store._contents.test).toEqual({
-        amount: 2
+        quantity: 2,
+        category: null
       })
     })
 
@@ -49,7 +52,8 @@ describe('Store', () => {
       store.add('test', undefined, 2)
 
       expect(store._contents.test).toEqual({
-        amount: 3
+        quantity: 3,
+        category: null
       })
     })
 
@@ -70,7 +74,8 @@ describe('Store', () => {
 
     test('should get the specified item', () => {
       expect(store.get('test')).toEqual({
-        amount: 1,
+        item: 'test',
+        quantity: 1,
         category: 'testItems'
       })
     })
@@ -98,7 +103,8 @@ describe('Store', () => {
       store.remove('test', 1)
 
       expect(store._contents.test).toEqual({
-        amount: 1
+        quantity: 1,
+        category: null
       })
     })
 
@@ -118,7 +124,8 @@ describe('Store', () => {
       store.remove('test', -1)
 
       expect(store._contents.test).toEqual({
-        amount: 2
+        quantity: 2,
+        category: null
       })
     })
   })

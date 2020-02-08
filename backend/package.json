@@ -23,6 +23,7 @@
     "@types/node": "^13.7.0",
     "jest": "^25.1.0",
     "pino-pretty": "^3.5.0",
-    "standard": "^14.3.1"
+    "standard": "^14.3.1",
+    "supertest": "^4.0.2"
   }
 }

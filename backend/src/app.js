@@ -1,9 +1,21 @@
 const express = require('express')
 const expressPino = require('express-pino-logger')
-const logger = require('./logger')
+const addRoute = require('./routes/add')
+const util = require('./util')
 
-const app = express()
+function createApp (store, logger) {
+  const app = express()
+  app.use(expressPino({ logger }))
+  app.use(express.json())
+  app.use((res, req, next) => {
+    res.store = store
+    next()
+  })
 
-app.use(expressPino(logger))
+  app.use('/add', util.verifyItemMiddleware)
+  app.post('/add', addRoute)
 
-module.exports = app
+  return app
+}
+
+module.exports = createApp
