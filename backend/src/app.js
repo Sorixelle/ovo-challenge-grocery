@@ -4,6 +4,7 @@ const util = require('./util')
 
 const addRoute = require('./routes/add')
 const bulkGetRoute = require('./routes/bulkGet')
+const deleteRoute = require('./routes/delete')
 const getRoute = require('./routes/get')
 const updateRoute = require('./routes/update')
 
@@ -25,6 +26,8 @@ function createApp (store, logger) {
 
   app.patch('/item/:itemName', util.verifyItemMiddleware(false))
   app.patch('/item/:itemName', updateRoute)
+
+  app.delete('/item/:itemName', deleteRoute)
 
   return app
 }
