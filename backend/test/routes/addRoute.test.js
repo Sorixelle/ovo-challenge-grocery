@@ -29,4 +29,18 @@ describe('/add', () => {
         error: 'Invalid item'
       })
   })
+
+  test('should respond with 400 when submitting an item with a name that already exists', () => {
+    return request.post('/add')
+      .send({
+        item: 'test2'
+      }).then(_ => {
+        return request.post('/add')
+          .send({
+            item: 'test2'
+          }).expect(400, {
+            error: 'Item "test2" already exists'
+          })
+      })
+  })
 })
