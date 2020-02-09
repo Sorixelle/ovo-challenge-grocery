@@ -11,7 +11,8 @@
   },
   "scripts": {
     "test": "standard && jest",
-    "dev": "LOG_LEVEL=debug node src/server.js | pino-pretty"
+    "dev": "LOG_LEVEL=debug node src/server.js | pino-pretty",
+    "prod": "LOG_LEVEL=trace node src/server.js"
   },
   "standard": {
     "env": [

@@ -1,0 +1,13 @@
+version: '3'
+services:
+  backend:
+    build: backend/
+    ports:
+      - "8080:80"
+  frontend:
+    build:
+      context: frontend/
+      args:
+        - API_URL=http://localhost:8080/
+    ports:
+      - "80:80"

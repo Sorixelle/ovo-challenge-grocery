@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "parcel index.html",
     "test": "standard && jest",
-    "test-regen-snapshots": "standard && jest -u"
+    "test-regen-snapshots": "standard && jest -u",
+    "build": "parcel build index.html"
   },
   "standard": {
     "env": [
