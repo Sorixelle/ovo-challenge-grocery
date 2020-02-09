@@ -1,0 +1,49 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "dev": "parcel index.html",
+    "test": "standard && jest",
+    "test-regen-snapshots": "standard && jest -u"
+  },
+  "standard": {
+    "env": [
+      "jest",
+      "es2020",
+      "browser"
+    ],
+    "ignore": [
+      "dist/"
+    ]
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./test/jest.setup.js"
+    ]
+  },
+  "browserslist": [
+    ">0.25%, not dead"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-react": "^7.8.3",
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^9.4.0",
+    "@types/jest": "^25.1.2",
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
+    "jest": "^25.1.0",
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "popper.js": "^1.16.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}

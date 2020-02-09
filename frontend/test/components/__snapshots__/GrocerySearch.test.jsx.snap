@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GrocerySearch should match the snapshot 1`] = `
+<div>
+  <form
+    class="input-group input-group-lg"
+  >
+    <div
+      class="input-group-prepend"
+    >
+      <label
+        class="input-group-text"
+        for="searchAddField"
+      >
+        Search
+      </label>
+    </div>
+    <input
+      class="form-control"
+      id="searchAddField"
+      type="text"
+      value=""
+    />
+    <div
+      class="input-group-append"
+    >
+      <select>
+        <option>
+          Filter categories...
+        </option>
+        <option>
+          Test Items
+        </option>
+        <option>
+          Other Items
+        </option>
+      </select>
+    </div>
+  </form>
+</div>
+`;

@@ -1,3 +1,4 @@
+const cors = require('cors')
 const express = require('express')
 const expressPino = require('express-pino-logger')
 const util = require('./util')
@@ -12,6 +13,7 @@ function createApp (store, logger) {
   const app = express()
   app.use(expressPino({ logger }))
   app.use(express.json())
+  app.use(cors())
   app.use((res, req, next) => {
     res.store = store
     next()

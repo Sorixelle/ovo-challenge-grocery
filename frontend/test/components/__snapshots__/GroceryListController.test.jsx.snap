@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GroceryListController should populate the list with items 1`] = `
+<div>
+  <div>
+    <form
+      class="input-group input-group-lg"
+    >
+      <div
+        class="input-group-prepend"
+      >
+        <label
+          class="input-group-text"
+          for="searchAddField"
+        >
+          Search
+        </label>
+      </div>
+      <input
+        class="form-control"
+        id="searchAddField"
+        type="text"
+        value=""
+      />
+      <div
+        class="input-group-append"
+      >
+        <select>
+          <option>
+            Filter categories...
+          </option>
+          <option>
+            Test Items
+          </option>
+          <option>
+            Other Items
+          </option>
+        </select>
+      </div>
+    </form>
+    <br />
+    <div
+      class="list-group"
+    >
+      <div
+        class="list-group-item"
+      >
+        1x
+         Test 
+        <small
+          class="text-muted"
+        >
+          Test Items
+        </small>
+        <a
+          class="btn text-white float-right btn-primary"
+        >
+          Edit
+        </a>
+        
+      </div>
+      <div
+        class="list-group-item"
+      >
+        1x
+         Test 2 
+        <small
+          class="text-muted"
+        >
+          Other Items
+        </small>
+        <a
+          class="btn text-white float-right btn-primary"
+        >
+          Edit
+        </a>
+        
+      </div>
+      <div
+        class="list-group-item"
+      >
+        1x
+         Test 3 
+        <small
+          class="text-muted"
+        />
+        <a
+          class="btn text-white float-right btn-primary"
+        >
+          Edit
+        </a>
+        
+      </div>
+    </div>
+  </div>
+</div>
+`;
