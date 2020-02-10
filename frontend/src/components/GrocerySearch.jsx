@@ -55,7 +55,7 @@ const GrocerySearch = ({ items, updateItems, hiddenItems, setHidden }) => {
     <form className='input-group input-group-lg' onSubmit={submitItem}>
       {addMode
         ? (
-          <div>
+          <div style={{ display: 'contents' }}>
             <input
               type='number' style={{ width: '15%' }}
               value={newQuantity} onChange={e => setNewQuantity(e.target.value)}

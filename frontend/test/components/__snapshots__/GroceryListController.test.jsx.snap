@@ -8,6 +8,7 @@ exports[`GroceryListController should populate the list with items 1`] = `
     >
       <div
         class="input-group-prepend"
+        style=""
       >
         <label
           class="input-group-text"
